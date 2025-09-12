@@ -5,8 +5,7 @@ class Pizzas {
     static create({ name, imageUrl, price }) {
         const sql = `INSERT INTO pizzas (name, price, imageUrl)
                      VALUES (?, ?, ?)`;
-        const params = [name || null, price, imageUrl || null]; // ✅ bon ordre
-
+        const params = [name || null, price, imageUrl || null];
         return new Promise((resolve, reject) => {
             db.run(sql, params, function (err) {
                 if (err) return reject(err);
@@ -60,7 +59,7 @@ class Pizzas {
         return new Promise((resolve, reject) => {
             db.run(sql, [id], function (err) {
                 if (err) return reject(err);
-                resolve(this.changes); // number of rows deleted
+                resolve(this.changes);
             });
         });
     }
