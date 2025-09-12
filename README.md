@@ -31,17 +31,17 @@ A simple RESTful API to manage products (CRUD) built with **Express**, **SQLite3
     │   server.js
     │
     ├───config
-    │       database.js
+    │       PizzasDatabase.js
     │       swagger.js
     │
     ├───controllers
-    │       controller.js
+    │       IngredientsController.js
     │
     ├───entities
-    │       entity.js
+    │       Ingredients.js
     │
     └───routes
-            routes.js
+            IngredientsRouters.js
             router.js
 ```
 
