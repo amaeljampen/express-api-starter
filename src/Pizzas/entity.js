@@ -1,7 +1,7 @@
-// entities/Pizzas.js
+// entities/entity.js
 const db = require('../config/database');
 
-class Pizzas {
+class Entity {
     static create({ name, imageUrl, price }) {
         const sql = `INSERT INTO pizzas (name, price, imageUrl)
                      VALUES (?, ?, ?)`;
@@ -9,7 +9,7 @@ class Pizzas {
         return new Promise((resolve, reject) => {
             db.run(sql, params, function (err) {
                 if (err) return reject(err);
-                Pizzas.findById(this.lastID).then(resolve).catch(reject);
+                Entity.findById(this.lastID).then(resolve).catch(reject);
             });
         });
     }
@@ -49,7 +49,7 @@ class Pizzas {
             db.run(sql, params, function (err) {
                 if (err) return reject(err);
                 if (this.changes === 0) return resolve(null);
-                Pizzas.findById(id).then(resolve).catch(reject);
+                Entity.findById(id).then(resolve).catch(reject);
             });
         });
     }
@@ -65,4 +65,4 @@ class Pizzas {
     }
 }
 
-module.exports = Pizzas;
+module.exports = Entity;
