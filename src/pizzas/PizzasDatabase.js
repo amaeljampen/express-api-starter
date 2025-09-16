@@ -21,6 +21,13 @@ CREATE TABLE IF NOT EXISTS pizzas (
   imageUrl TEXT,
   price REAL NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS pizza_ingredients (
+    pizzaId INTEGER NOT NULL,
+    ingredientId INTEGER NOT NULL,
+    FOREIGN KEY (pizzaId) REFERENCES pizzas(id) ON DELETE CASCADE,
+    FOREIGN KEY (ingredientId) REFERENCES ingredients(id) ON DELETE CASCADE
+    );
 `
 
 db.serialize(() => {

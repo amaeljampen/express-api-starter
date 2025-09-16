@@ -104,6 +104,7 @@ const createAndUpdateValidations = [
     body('name').isString().notEmpty().withMessage('name is required'),
     body('imageUrl').optional().isString().isURL().withMessage('imageUrl must be a valid URL'),
     body('price').isFloat({ gt: 0 }).withMessage('price must be a positive number'),
+    body('ingredients').isArray().withMessage('ingredients must be an array'),
 ];
 
 router.get('/', pizzaController.findAll);
