@@ -2,6 +2,7 @@
 const { validationResult } = require('express-validator');
 const Pizza = require('./Pizzas');
 const axios = require("axios");
+const PizzaIngredient = require("./PizzaIngredients");
 
 require('dotenv').config();
 const port = process.env.PORT || 3000;

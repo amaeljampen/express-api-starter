@@ -24,6 +24,7 @@ const router = express.Router();
  *             required:
  *               - name
  *               - price
+ *               - ingredients
  *             properties:
  *               name:
  *                 type: string
@@ -31,6 +32,8 @@ const router = express.Router();
  *                 type: string
  *               price:
  *                 type: number
+ *               ingredients:
+ *                 type: array
  *     responses:
  *       201:
  *         description: Pizza created
