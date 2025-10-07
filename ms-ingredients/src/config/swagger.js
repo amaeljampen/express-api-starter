@@ -10,10 +10,10 @@ const options = {
             description: 'RESTful API for product management (SQLite, Express).'
         },
         servers: [
-            { url: 'http://localhost:3000', description: 'Local dev server' }
+            { url: 'http://localhost:3001', description: 'Local dev server' }
         ]
     },
-    apis: ['./src/routes/*.js', './src/pizzas/*.js', './src/ingredients/*.js'] // pick up JSDoc in routes/controllers
+    apis: ['./src/routes/*.js', './src/*.js'] // pick up JSDoc in routes/controllers
 };
 
 const swaggerSpec = swaggerJSDoc(options);

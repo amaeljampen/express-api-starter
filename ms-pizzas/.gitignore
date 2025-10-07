@@ -85,5 +85,5 @@ http-client.private.env.json
 # Custom for the project
 node_modules/
 dev.sqlite
-ms-ingredients/.env
+.env
 coverage/

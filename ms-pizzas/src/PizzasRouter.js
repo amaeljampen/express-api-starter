@@ -78,6 +78,8 @@ const router = express.Router();
  *                 type: string
  *               price:
  *                 type: number
+ *               ingredients:
+ *                 type: array
  *     responses:
  *       200:
  *         description: Pizza updated
@@ -105,7 +107,7 @@ const router = express.Router();
  */
 const createAndUpdateValidations = [
     body('name').isString().notEmpty().withMessage('name is required'),
-    body('imageUrl').optional().isString().isURL().withMessage('imageUrl must be a valid URL'),
+    body('imageUrl').optional().isString().withMessage('imageUrl must be a valid URL'),
     body('price').isFloat({ gt: 0 }).withMessage('price must be a positive number'),
     body('ingredients').isArray().withMessage('ingredients must be an array'),
 ];

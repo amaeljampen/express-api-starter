@@ -1,0 +1,27 @@
+@startuml
+actor Client
+
+participant "Routeur global\napp.js" as App
+participant "Routeur product\npizzas.js" as Router
+participant "Contrôleur\ncontroller.js" as Controller
+participant "Entité\nmodel.js" as Model
+database "MySQL\nDB" as DB
+
+Client -> App : POST /api/v1/pizzas
+App -> Router : pizzas route
+Router -> Controller : createPizza(req)
+Controller -> Model : Pizza(name, price)
+
+alt Validation Error
+    Model --> Controller : SequelizeValidatorError
+    Controller --> Client : Bad request + validation message
+else Success
+    Model -> DB : INSERT INTO pizzas (name, price)\nVALUES(...)
+    DB --> Model : Inserted
+    Model --> Controller : Success
+    Controller --> Client : Success message
+else Server Error
+    Controller --> Client : Server Error message
+end
+
+@enduml
